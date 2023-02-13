@@ -1,0 +1,63 @@
+name: Hiden dependency updater
+description: "Update the dependencies of your project that are not checked by Dependabot"
+branding:
+  icon: "book-open"
+  color: "white"
+
+inputs:
+
+  # Required inputs
+  prefix: # prefix of the tag
+    description: "The prefix of the tag"
+    required: true
+    default: ""
+    type: string
+  suffix: # suffix of the tag
+    description: "The suffix of the tag"
+    required: false
+    default: ""
+    type: string
+  regex: # regex to match the dependencies
+    description: "Format of the tag, by default v?[0-9.]*"
+    required: true
+    default: v?[0-9.]*
+    type: string
+  files: # files to update
+    description: "Files to update"
+    required: true
+    type: string
+  github_repository: # github repository
+    description: "Github repository to get the latest tag"
+    required: true
+    type: string
+
+
+
+runs:
+  using: "composite"
+  steps:
+    - name: get current tag
+      id: get_current_tag
+      shell: bash
+      run: |
+        temp_result=$(grep -ho -P "(?<=MathieuSoysal/file-updater-for-release@)v?[0-9.]*" tests/test1.txt tests/test2.txt | head -1)
+        echo "current-tag=${temp_result}" >> $GITHUB_OUTPUT
+
+    - name: get new tag
+      id: get_new_tag
+      shell: bash
+      run: |
+        temp_result=$(curl -s https://api.github.com/repos/${{ inputs.github_repository }}/tags | jq -r '.[0].name')
+        echo "new-tag=${temp_result}" >> $GITHUB_OUTPUT
+
+    - name: update files
+      if: steps.get_current_tag.outputs.current-tag != steps.get_new_tag.outputs.new-tag
+      uses: MathieuSoysal/file-updater-for-release@v1.0.3
+      with:
+        files: ${{ inputs.files }}
+        prefix: ${{ inputs.prefix }}
+        suffix: ${{ inputs.suffix }}
+        old-version: ${{ steps.get_current_tag.outputs.current-tag }}
+        version: ${{ steps.get_new_tag.outputs.new-tag }}
+        with-chekout: false
+  
