@@ -47,8 +47,7 @@ runs:
       id: get_new_tag
       shell: bash
       run: |
-        temp_result=$(curl -s https://api.github.com/repos/${{ inputs.github_repository }}/tags | grep -h "name" | head -1 | grep -ho "${{inputs.regex}}")
-        echo "new-tag=${temp_result}" >> $GITHUB_OUTPUT
+        echo "$(curl -s https://api.github.com/repos/${{ inputs.github_repository }}/tags)"
 
     - name: update files
       if: steps.get_current_tag.outputs.current-tag != steps.get_new_tag.outputs.new-tag
