@@ -20,7 +20,7 @@ inputs:
   regex: # regex to match the dependencies
     description: "Format of the tag, by default v?[0-9.]*"
     required: true
-    default: v?[0-9.]*
+    default: v\?[0-9.]*
     type: string
   files: # files to update
     description: "Files to update"
