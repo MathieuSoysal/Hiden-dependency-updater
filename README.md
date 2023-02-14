@@ -38,7 +38,7 @@ jobs:
         with:
           files: action.yml # List of files to update
           prefix: "com.google.cloud.tools:jib-maven-plugin:" # Prefix before the version, default is: ""
-		  repository: "GoogleContainerTools/jib"
+          repository: "GoogleContainerTools/jib"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
@@ -81,11 +81,11 @@ jobs:
           ref: main # The branch you want to commit to
 
 
-        uses: MathieuSoysal/Hiden-dependancy-updater@v1.0.0
+      - uses: MathieuSoysal/Hiden-dependancy-updater@v1.0.0
         with:
           files: action.yml # List of files to update
           prefix: "com.google.cloud.tools:jib-maven-plugin:" # Prefix before the version, default is: ""
-		  repository: "GoogleContainerTools/jib"
+          repository: "GoogleContainerTools/jib"
       
       - name: Push changes
         uses: EndBug/add-and-commit@v9
