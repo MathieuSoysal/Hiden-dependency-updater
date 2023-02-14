@@ -30,6 +30,11 @@ inputs:
     description: "Github repository to get the latest tag"
     required: true
     type: string
+  selector: # selector to get a particular kind of tag in many kind of tags
+    description: "Selector to get the latest tag"
+    required: true
+    default: ""
+    type: string
 
 
 
@@ -47,7 +52,9 @@ runs:
       id: get_new_tag
       shell: bash
       run: |
-        temp_result=$(curl -s https://api.github.com/repos/${{ inputs.github_repository }}/tags | grep -h "name" | head -1 | grep -ho "${{inputs.regex}}")
+        temp_result=$(curl -s https://api.github.com/repos/${{inputs.github_repository}}/tags | grep -h "name" | grep -h "${{inputs.selector}}" |  head -1 | grep -ho "${{inputs.regex}}")
+        echo "${temp_result}"
+        echo "${temp_result}"
         echo "new-tag=${temp_result}" >> $GITHUB_OUTPUT
 
     - name: update files
