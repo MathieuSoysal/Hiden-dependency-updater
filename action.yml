@@ -40,7 +40,7 @@ runs:
       id: get_current_tag
       shell: bash
       run: |
-        temp_result=$(grep -ho "${{inputs.preffix}}${{regex}}${{inputs.suffix}}" ${{ inputs.files }} | head -1 | grep -ho "${{regex}}")
+        temp_result=$(grep -ho "${{inputs.preffix}}${{inputs.regex}}${{inputs.suffix}}" ${{ inputs.files }} | head -1 | grep -ho "${{inputs.regex}}")
         echo "current-tag=${temp_result}" >> $GITHUB_OUTPUT
 
     - name: get new tag
