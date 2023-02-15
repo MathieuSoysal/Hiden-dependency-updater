@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update files
-        uses: MathieuSoysal/hiden-dependancy-updater@v1.0.1
+        uses: MathieuSoysal/hiden-dependancy-updater@v1.1.0
         with:
           files: action.yml # List of files to update
           prefix: "com.google.cloud.tools:jib-maven-plugin:" # Prefix before the version, default is: ""
@@ -81,7 +81,7 @@ jobs:
           ref: main # The branch you want to commit to
 
 
-      - uses: MathieuSoysal/hiden-dependancy-updater@v1.0.1
+      - uses: MathieuSoysal/hiden-dependancy-updater@v1.1.0
         with:
           files: action.yml # List of files to update
           prefix: "com.google.cloud.tools:jib-maven-plugin:" # Prefix before the version, default is: ""
