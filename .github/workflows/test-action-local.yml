@@ -8,17 +8,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: GuillaumeFalourd/assert-command-line-output@v2
+      - uses: GuillaumeFalourd/assert-command-line-output@v3
         with:
           command_line: cat tests/test1.txt
           contains: MathieuSoysal/file-updater-for-release@v1.0.0
 
-      - uses: GuillaumeFalourd/assert-command-line-output@v2
+      - uses: GuillaumeFalourd/assert-command-line-output@v3
         with:
           command_line: cat tests/test2.txt
           contains: MathieuSoysal/file-updater-for-release@v1.0.0
 
-      - uses: GuillaumeFalourd/assert-command-line-output@v2
+      - uses: GuillaumeFalourd/assert-command-line-output@v3
         with:
           command_line: cat tests/test-maven.txt
           contains: cloud.tools:jib-maven-plugin:3.2.1
@@ -39,13 +39,13 @@ jobs:
           prefix: MathieuSoysal/file-updater-for-release@
 
       - name: Test if file 1 have been updated
-        uses: GuillaumeFalourd/assert-command-line-output@v2
+        uses: GuillaumeFalourd/assert-command-line-output@v3
         with:
           command_line: cat tests/test1.txt
           contains: MathieuSoysal/file-updater-for-release@v1.0.3
 
       - name: Test if file 2 have been updated
-        uses: GuillaumeFalourd/assert-command-line-output@v2
+        uses: GuillaumeFalourd/assert-command-line-output@v3
         with:
           command_line: cat tests/test2.txt
           contains: MathieuSoysal/file-updater-for-release@v1.0.3
@@ -65,7 +65,7 @@ jobs:
           selector: maven
 
       - name: Test if file has been updated
-        uses: GuillaumeFalourd/assert-command-line-output@v2
+        uses: GuillaumeFalourd/assert-command-line-output@v3
         with:
           command_line: cat tests/test-maven.txt
           contains: cloud.tools:jib-maven-plugin:3.2.1
