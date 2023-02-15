@@ -33,7 +33,7 @@ inputs:
   selector: # selector to get a particular kind of tag in many kind of tags
     description: "Selector to get the latest tag"
     required: true
-    default: ""
+    default: ":"
     type: string
 
 
