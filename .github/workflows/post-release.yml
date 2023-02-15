@@ -12,7 +12,7 @@ jobs:
         uses: MathieuSoysal/file-updater-for-release@v1.0.3
         with:
           files: README.md # List of files to update
-          prefix: "hiden-dependancy-updater@" # Prefix before the version, default is: ""
+          prefix: "hiden-dependency-updater@" # Prefix before the version, default is: ""
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
