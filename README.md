@@ -1,5 +1,5 @@
-# Hiden-dependancy-updater
-[![Test Actions](https://github.com/MathieuSoysal/hiden-dependancy-updater/actions/workflows/test-action-final.yml/badge.svg)](https://github.com/MathieuSoysal/hiden-dependancy-updater/actions/workflows/test-action-final.yml)*(Tested on Ubuntu, Macos, Windows)*
+# Hiden-dependency-updater
+[![Test Actions](https://github.com/MathieuSoysal/hiden-dependency-updater/actions/workflows/test-action-final.yml/badge.svg)](https://github.com/MathieuSoysal/hiden-dependency-updater/actions/workflows/test-action-final.yml)*(Tested on Ubuntu, Macos, Windows)*
 
 
 Update automatically dependency that Dependabot can't check.
@@ -34,7 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update files
-        uses: MathieuSoysal/hiden-dependancy-updater@v1.1.1
+
+        uses: MathieuSoysal/hiden-dependency-updater@v1.1.1
         with:
           files: action.yml # List of files to update
           prefix: "com.google.cloud.tools:jib-maven-plugin:" # Prefix before the version, default is: ""
@@ -81,7 +82,8 @@ jobs:
           ref: main # The branch you want to commit to
 
 
-      - uses: MathieuSoysal/hiden-dependancy-updater@v1.1.1
+
+      - uses: MathieuSoysal/hiden-dependency-updater@v1.1.1
         with:
           files: action.yml # List of files to update
           prefix: "com.google.cloud.tools:jib-maven-plugin:" # Prefix before the version, default is: ""
@@ -103,7 +105,7 @@ Want to contribute to File Updater? Awesome! Check out [the contributing guideli
 
 ### Requirements to your environment to test in locally
 
-- Install [nektos/act](https://github.com/nektos/act) & clone the repo `git clone git@github.com:MathieuSoysal/hiden-dependancy-updater.git`  
+- Install [nektos/act](https://github.com/nektos/act) & clone the repo `git clone git@github.com:MathieuSoysal/hiden-dependency-updater.git`  
 OR
 - Use the devcontainer of the repo: with [GitHub Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=601249707)
 
@@ -118,4 +120,4 @@ act workflow_dispatch -W .github/workflows/test-action-local.yml
 If you like or use this project, don't forget to give it a star ⭐️.
 
 ## License
-The Dockerfile and associated scripts and documentation in this project are released under the [Apache 2.0 License](https://github.com/MathieuSoysal/hiden-dependancy-updater/blob/main/LICENSE).
+The Dockerfile and associated scripts and documentation in this project are released under the [Apache 2.0 License](https://github.com/MathieuSoysal/hiden-dependency-updater/blob/main/LICENSE).
