@@ -53,8 +53,6 @@ runs:
       shell: bash
       run: |
         temp_result=$(curl -s https://api.github.com/repos/${{inputs.github_repository}}/tags | grep -h "name" | grep -h "${{inputs.selector}}" |  head -1 | grep -ho "${{inputs.regex}}")
-        echo "${temp_result}"
-        echo "${temp_result}"
         echo "new-tag=${temp_result}" >> $GITHUB_OUTPUT
 
     - name: update files
